@@ -1,0 +1,86 @@
+﻿@model FoodShop.Models.GMenuFood
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="single">
+        <div class="col-md-9  single-top">
+            <div class="text-in">
+                <div class="single-men">
+                    <img class="img-responsive" src="~/Content/images/sin.jpg" alt="" />
+                    <h5> @Html.DisplayFor(x => x.LsMenuFood[0].NameFood) </h5>
+
+                    <p>  @Html.DisplayFor(x => x.LsMenuFood[0].PriceFood) </p>
+
+                    <p>  @Html.DisplayFor(x => x.LsMenuFood[0].InfoFood) </p>
+                </div>
+                <div class="comments-area">
+                    <h3>Add New Comment</h3>
+                    <form action="SingleComment">
+                        <p>
+                            <label>Subject</label>
+                            <input type="text" name="txtcmt" class="account" value="">
+                            @*<textarea name="txtcmt"></textarea>*@
+                        </p>
+                        <div class="sub-in">
+                            <input type="submit" value="Submit Comment">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-md-3 single-bottom">
+            <div class="store-right">
+                <h6> Categories</h6>
+                <ul class="store-men">
+                    <li><a href="#"><span> </span>Contrary to popular </a></li>
+                    <li><a href="#"><span> </span>simply random text</a></li>
+                    <li><a href="#"><span> </span> Lorem Ipsum passage </a></li>
+                    <li><a href="#"><span> </span>undoubtable source </a></li>
+                    <li><a href="#"><span> </span>Finibus Bonorum et</a></li>
+                    <li class="last"><a href="#"><span> </span>word in classical literature </a></li>
+                </ul>
+            </div>
+            <div class="store-right">
+                <h6>Top rated products</h6>
+                <div class="product">
+                    <img class="img-responsive fashion" src="~/Content/images/st1.jpg" alt="" />
+                    <div class="grid-product">
+                        <a href="#" class="elit">consectetuer adipiscing elit</a>
+                        <span class="price price-in"><small>$15.00</small> $10.00</span>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="product">
+                    <img class="img-responsive fashion" src="~/Content/images/st2.jpg" alt="" />
+                    <div class="grid-product">
+                        <a href="#" class="elit">consectetuer adipiscing elit</a>
+                        <span class="price price-in"><small>$15.00</small> $10.00</span>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="product">
+                    <img class="img-responsive fashion" src="~/Content/images/st3.jpg" alt="" />
+                    <div class="grid-product">
+                        <a href="#" class="elit">consectetuer adipiscing elit</a>
+                        <span class="price price-in"><small>$150.00</small> $10.00</span>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="product">
+                    <img class="img-responsive fashion" src="~/Content/images/st4.jpg" alt="" />
+                    <div class="grid-product">
+                        <a href="#" class="elit">consectetuer adipiscing elit</a>
+                        <span class="price price-in"><small>$15.00</small> $10.00</span>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!---->

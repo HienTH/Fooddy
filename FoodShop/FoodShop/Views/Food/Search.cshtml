@@ -1,0 +1,63 @@
+﻿@model FoodShop.Models.GMenuFood
+@{
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<div class="cup">
+    <div class="col-md-4 cup-in">
+        <a href="single.html"><img src = @Html.DisplayFor(x=> x.LsMenuFood[0].URL) class="img-responsive" alt=""></a>
+        <p>@Html.DisplayFor( x => x.LsMenuFood[0].NameFood)</p>
+        <span class="dollar">@Html.DisplayFor(x => x.LsMenuFood[0].PriceFood) K</span>
+        <div class="details-in">
+            @Html.ActionLink("Details", "Single", new { Name = @Model.LsMenuFood[0].NameFood }, new { @class = "details" })
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+
+    <div class="col-md-4 cup-in">
+        <a href=""><img src="~/Content/images/none.jpg" class="img-responsive" alt=""></a>
+        <p> Không có </p>
+        <span class="dollar">K</span>
+        <div class="clearfix"> </div>
+    </div>
+
+    <div class="col-md-4 cup-in">
+        <a href=""><img src="~/Content/images/none.jpg" class="img-responsive" alt=""></a>
+        <p> Không có </p>
+        <span class="dollar">K</span>
+        <div class="clearfix"> </div>
+    </div>
+
+    <div class="col-md-4 cup-in">
+        <a href=""><img src="~/Content/images/none.jpg" class="img-responsive" alt=""></a>
+        <p> Không có </p>
+        <span class="dollar">K</span>
+        <div class="clearfix"> </div>
+    </div>
+
+    <div class="col-md-4 cup-in">
+        <a href=""><img src="~/Content/images/none.jpg" class="img-responsive" alt=""></a>
+        <p> Không có </p>
+        <span class="dollar">K</span>
+        <div class="clearfix"> </div>
+    </div>
+
+    <div class="col-md-4 cup-in">
+        <a href=""><img src="~/Content/images/none.jpg" class="img-responsive" alt=""></a>
+        <p> Không có </p>
+        <span class="dollar">K</span>
+        <div class="clearfix"> </div>
+    </div>
+
+    <div class="clearfix"> </div>
+</div>
+<!---->
+<div class="browse">
+    <p class="vit">Mollis vitae oigu edlobit <span>vulipur felis ...</span></p>
+    <a href="single.html" class="more">Browse More</a>
+    <div class="clearfix"> </div>
+    <div class="arrow">
+        <a href="#"><img src="~/Content/images/arrow.png" alt=""></a>
+    </div>
+</div>
+

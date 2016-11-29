@@ -1,0 +1,26 @@
+﻿@model FoodShop.Models.User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="account">
+        <h2>Account</h2>
+        <form action="SignIn">
+            <div>
+                <span>Full Name</span>
+                <input type="text" name="txtName" value=" ">
+            </div>
+            <div>
+                <span class="mail">Email</span>
+                <input type="text" name="txtemail" value=" ">
+            </div>
+            <div>
+                <span class="word">Password</span>
+                <input type="password" name="txtpass" value="">
+            </div>
+            <input type="submit" value="Sign In">
+        </form>
+    </div>
+
+</div>

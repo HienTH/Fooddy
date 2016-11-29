@@ -1,0 +1,61 @@
+﻿@model FoodShop.CSDL.Group_Index
+<meta property="og:url" content="http://www.your-domain.com/your-page.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Your Website Title" />
+<meta property="og:description" content="Your description" />
+<meta property="og:image" content="http://www.your-domain.com/path/image.jpg" />
+
+@{
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+    var r = @Model.LsFoodMain.Count;
+    Random rd = new Random();
+    var i = rd.Next(0, r);
+    var h = 0;
+}
+<div class="cup">
+    @while(h!=9 && i < r)
+    {
+        <div class="col-md-4 cup-in" style="float:left; margin:0.7em;">
+            <a href="single.html"><img src="~/Content/images/@Model.LsFoodMain[i].Image" style="width: 174px; height: 178.5px; color: #35a22c;"></a>
+            <p style="text-decoration: none;">@Html.ActionLink(@Model.LsFoodMain[i].Name, "Single", new { Name = Model.LsFoodMain[i].ID }) </p>
+            <span class="dollar">@Model.LsFoodMain[i].UnitPrice K</span>
+            <div class="details-in"></div>
+                <div id="fb-root"></div>
+                <script>
+                    (function (d, s, id)
+                    {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                    (document, 'script', 'facebook-jssdk'));
+                </script>
+                <!-- Your like button code -->
+                <div class="fb-like"
+                     data-href="http://www.your-domain.com/your-page.html"
+                     data-layout="standard"
+                     data-action="like"
+                     data-show-faces="true">
+                </div>
+            <div class="clearfix"> </div>
+        </div>
+        i++;
+        h++;
+        if(i==r)
+        {
+            i = 0;
+        }
+    }
+    <div class="clearfix"> </div>
+</div>
+
+<div class="browse">
+    <p class="vit">Mollis vitae oigu edlobit <span>vulipur felis ...</span></p>
+    <a href="nau.vn" class="more">Browse More</a>
+    <div class="clearfix"> </div>
+    <div class="arrow">
+        <a href="/Food/Main"><img src="~/Content/images/arrow.png" alt=""></a>
+    </div>
+</div>
