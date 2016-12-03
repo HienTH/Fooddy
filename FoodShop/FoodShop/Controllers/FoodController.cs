@@ -22,12 +22,10 @@ namespace FoodShop.Controllers
             GIndex.LsSupply = model.Database.SqlQuery<tblSupplier>(@"select top 5 * from tblSuppliers order by Vote desc").ToList();
             return View(GIndex);
         }
-
         public ActionResult TopMenu()
         {
             return View();
         }
-
         public ActionResult Main()
         {
             GIndex.LsCategory = model.tblCategories.ToList();
@@ -36,13 +34,17 @@ namespace FoodShop.Controllers
             GIndex.LsSupply = model.Database.SqlQuery<tblSupplier>(@"select top 5 * from tblSuppliers order by Vote desc").ToList();
             return View(GIndex);
         }
-       
-        public ActionResult Single(int ID)
-        {
-           
-           return View();
-        }
 
+      
+        public ActionResult Single(string ID)
+        {
+            GIndex.LsCategory = model.tblCategories.ToList();
+            List<tblFood> LsFood = new List<tblFood>();
+            LsFood = model.Database.SqlQuery<tblFood>(@"select * from tblFood where ID ='"+ID+"'").ToList();
+            GIndex.LsFoodMain = model.Database.SqlQuery<tblFood>(@"select top 5 * from tblFood order by Views desc").ToList();
+            GIndex.LsFood = LsFood;
+            return View(GIndex);
+        }
         public ActionResult SingleComment(string txtcmt)
         {
                     List<CommentFood> lscmt = new List<CommentFood>();

@@ -189,6 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap_star.css" />
     <Content Include="Content\images\12.png" />
     <Content Include="Content\images\arrow.png" />
     <Content Include="Content\images\arrow_search.png" />
@@ -229,6 +230,7 @@
     <Content Include="Content\images\up.png" />
     <Content Include="Content\style.css" />
     <Content Include="Content\style_search.css" />
+    <Content Include="Content\style_star.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\Douong.jpg" />

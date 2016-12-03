@@ -1,4 +1,5 @@
-﻿@model FoodShop.Models.GMenuFood
+﻿@model FoodShop.CSDL.Group_Index
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -8,13 +9,43 @@
         <div class="col-md-9  single-top">
             <div class="text-in">
                 <div class="single-men">
-                    <img class="img-responsive" src="~/Content/images/sin.jpg" alt="" />
-                    <h5> @Html.DisplayFor(x => x.LsMenuFood[0].NameFood) </h5>
+                    <img class="img-responsive" src="~/Content/images/@Model.LsFood[0].Image" alt="" />
+                    <form action="" class="sky-form">
+                        <fieldset>
+                            <section>
+                                <div class="rating">
+                                    <input type="radio" name="stars-rating" id="stars-rating-5">
+                                    <label for="stars-rating-5"><i class="icon-star"></i></label>
+                                    <input type="radio" name="stars-rating" id="stars-rating-4">
+                                    <label for="stars-rating-4"><i class="icon-star"></i></label>
+                                    <input type="radio" name="stars-rating" id="stars-rating-3">
+                                    <label for="stars-rating-3"><i class="icon-star"></i></label>
+                                    <input type="radio" name="stars-rating" id="stars-rating-2">
+                                    <label for="stars-rating-2"><i class="icon-star"></i></label>
+                                    <input type="radio" name="stars-rating" id="stars-rating-1">
+                                    <label for="stars-rating-1"><i class="icon-star"></i></label>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </section>
+                        </fieldset>
+                    </form>
+                    <div class="clearfix"> </div>
+                    <h5> @Model.LsFood[0].Name </h5>
 
-                    <p>  @Html.DisplayFor(x => x.LsMenuFood[0].PriceFood) </p>
+                    <h5>  @Model.LsFood[0].UnitPrice K </h5>
 
-                    <p>  @Html.DisplayFor(x => x.LsMenuFood[0].InfoFood) </p>
+                    <p>  @Model.LsFood[0].Description </p>
                 </div>
+                <ul class="comment-list">
+                    <h5 class="post-author_head">Written by ADMIN</h5>
+                    <li>
+                        <img src="~/Content/images/avatar.png" class="img-responsive" alt="">
+                        <div class="desc">
+                            <p>View all posts by: <a href="#" title="Posts by admin" rel="author">admin</a></p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                </ul>
                 <div class="comments-area">
                     <h3>Add New Comment</h3>
                     <form action="SingleComment">
@@ -29,58 +60,32 @@
                     </form>
                 </div>
             </div>
-
-
         </div>
         <div class="col-md-3 single-bottom">
             <div class="store-right">
                 <h6> Categories</h6>
                 <ul class="store-men">
-                    <li><a href="#"><span> </span>Contrary to popular </a></li>
-                    <li><a href="#"><span> </span>simply random text</a></li>
-                    <li><a href="#"><span> </span> Lorem Ipsum passage </a></li>
-                    <li><a href="#"><span> </span>undoubtable source </a></li>
-                    <li><a href="#"><span> </span>Finibus Bonorum et</a></li>
-                    <li class="last"><a href="#"><span> </span>word in classical literature </a></li>
+                    @foreach(var item in @Model.LsCategory)
+                    {
+                           <li><a href="#"><span> </span>@item.Name</a></li>
+                    }
                 </ul>
             </div>
             <div class="store-right">
                 <h6>Top rated products</h6>
+                @foreach(var item in @Model.LsFoodMain)
+                {
                 <div class="product">
-                    <img class="img-responsive fashion" src="~/Content/images/st1.jpg" alt="" />
+                    <img class="img-responsive fashion" src="~/Content/images/@item.Image" style="width: 100px; height: 100px; color: #35a22c;" alt="" />
                     <div class="grid-product">
-                        <a href="#" class="elit">consectetuer adipiscing elit</a>
-                        <span class="price price-in"><small>$15.00</small> $10.00</span>
+                        @Html.ActionLink(@item.Name, "Single", new { ID = @item.ID }, new { @class = "elit" })
+                        <span class="price price-in"> @item.UnitPrice K</span>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
-                <div class="product">
-                    <img class="img-responsive fashion" src="~/Content/images/st2.jpg" alt="" />
-                    <div class="grid-product">
-                        <a href="#" class="elit">consectetuer adipiscing elit</a>
-                        <span class="price price-in"><small>$15.00</small> $10.00</span>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="product">
-                    <img class="img-responsive fashion" src="~/Content/images/st3.jpg" alt="" />
-                    <div class="grid-product">
-                        <a href="#" class="elit">consectetuer adipiscing elit</a>
-                        <span class="price price-in"><small>$150.00</small> $10.00</span>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="product">
-                    <img class="img-responsive fashion" src="~/Content/images/st4.jpg" alt="" />
-                    <div class="grid-product">
-                        <a href="#" class="elit">consectetuer adipiscing elit</a>
-                        <span class="price price-in"><small>$15.00</small> $10.00</span>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
+                }
             </div>
         </div>
         <div class="clearfix"> </div>
     </div>
 </div>
-<!---->

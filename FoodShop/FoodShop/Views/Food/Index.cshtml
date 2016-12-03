@@ -9,7 +9,7 @@
                     <a href="single.html"><img src="~/Content/images/@item.Image" style="width: 174px; height: 178.5px;"></a>
                 <p>@item.Name</p>
                 <div class="details-in">
-                   @Html.ActionLink("Details", "Single", new { Name = item.ID }, new { @class = "details" })
+                   @Html.ActionLink("Details", "Single", new { ID = item.ID }, new { @class = "details" })
                 </div>
                 <div class="clearfix"> </div>
                 </div>
