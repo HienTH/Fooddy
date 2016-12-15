@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FoodShop.Models;
+using FoodShop.CSDL;
 
 namespace FoodShop.Controllers
 {
@@ -11,49 +12,17 @@ namespace FoodShop.Controllers
     {
         //
         // GET: /User/
+        Fooddy model = new Fooddy();
         public ActionResult Login()
         {
-            List<User> lsUser = new List<User>();
-            User us = new User();
-            us.FullName = "HienHD";
-          
-            us.Email = "haduchien@gmail.com";
-            us.Password = "12345";
-            lsUser.Add(us);
-                
-            User us1 = new User();
-            us1.FullName = "ThieuDV";
-            us1.Email = "doanvanthieu@gmail.com";
-            us1.Password = "12345";
-            lsUser.Add(us1);
-
-            
             return View();
         }
 
         public ActionResult SignIn(User us)
         {
-            //string txtname,string txtmail,string txtpass
-            List<User> lsUser = new List<User>();
-            User us0 = new User();
-            us0.FullName = "HienHD";
-            us0.Email = "haduchien@gmail.com";
-            us0.Password = "12345";
-            lsUser.Add(us0);
-            User us1 = new User();
-            us1.FullName = "ThieuDV";
-            us1.Email = "doanvanthieu@gmail.com";
-            us1.Password = "12345";
-            lsUser.Add(us1);
-
-            if( us.FullName!="" && us.Password!="" )
-            {
-            //User us = new User();
-            //us.FullName = txtname;
-            //us.Email = txtmail;
-            //us.Password = txtpass;
-            lsUser.Add(us);
-            }
+            List<tblUser> lsUser = new List<tblUser>();
+            lsUser = model.Database.SqlQuery<tblUser>(@"select * from tblUser").ToList();
+            
             return RedirectToAction("Index", "Food");
         }
 
@@ -64,18 +33,10 @@ namespace FoodShop.Controllers
 
         public ActionResult Check(string txtuser, string txtpass)
         {
-            List<User> lsUser = new List<User>();
-            User us0 = new User();
-            us0.FullName = "HienHD";
-            us0.Email = "haduchien@gmail.com";
-            us0.Password = "12345";
-            lsUser.Add(us0);
-            User us1 = new User();
-            us1.FullName = "ThieuDV";
-            us1.Email = "doanvanthieu@gmail.com";
-            us1.Password = "12345";
-            lsUser.Add(us1);
+            List<tblUser> lsUser = new List<tblUser>();
 
+            lsUser = model.Database.SqlQuery<tblUser>(@"select * from tblUser").ToList();
+            
             if(txtuser=="admin" && txtpass=="admin")
             {
                 Session["FullName"] = "admin";
@@ -84,9 +45,10 @@ namespace FoodShop.Controllers
 
             for (int i = 0; i < lsUser.Count;i++ )
             {
-                if(txtuser==lsUser[i].FullName && txtpass==lsUser[i].Password)
+                if(txtuser==lsUser[i].Username && txtpass==lsUser[i].Password)
                 {
-                    Session["FullName"] = lsUser[i].FullName;
+                    Session["FullName"] = lsUser[i].Username;
+                    ViewBag.name = txtuser;
                     return RedirectToAction("Index", "Food");
                 }
             }

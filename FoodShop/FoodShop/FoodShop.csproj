@@ -307,6 +307,7 @@
     <Content Include="Views\Food\SingleComment.cshtml" />
     <Content Include="Views\Food\TopMenu.cshtml" />
     <Content Include="Views\Food\Main.cshtml" />
+    <Content Include="Views\Shared\P_User.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

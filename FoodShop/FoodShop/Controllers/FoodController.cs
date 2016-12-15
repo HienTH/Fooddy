@@ -40,8 +40,9 @@ namespace FoodShop.Controllers
         {
             GIndex.LsCategory = model.tblCategories.ToList();
             List<tblFood> LsFood = new List<tblFood>();
-            LsFood = model.Database.SqlQuery<tblFood>(@"select * from tblFood where ID ='"+ID+"'").ToList();
+            LsFood = model.Database.SqlQuery<tblFood>(@"select * from tblFood where ID ='" + ID + "'").ToList();
             GIndex.LsFoodMain = model.Database.SqlQuery<tblFood>(@"select top 5 * from tblFood order by Views desc").ToList();
+            GIndex.LsSupply = model.Database.SqlQuery<tblSupplier>(@"select * from tblSuppliers where tblSuppliers.ID = (select tblFood.SupplierId from tblFood where tblFood.ID ='" + ID + "')").ToList();
             GIndex.LsFood = LsFood;
             return View(GIndex);
         }

@@ -4,31 +4,33 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <div class="container">
     <div class="single">
         <div class="col-md-9  single-top">
             <div class="text-in">
-                <div class="single-men">
-                    <img class="img-responsive" src="~/Content/images/@Model.LsFood[0].Image" alt="" />
-                    <form action="" class="sky-form">
-                        <fieldset>
-                            <section>
-                                <div class="rating">
-                                    <input type="radio" name="stars-rating" id="stars-rating-5">
-                                    <label for="stars-rating-5"><i class="icon-star"></i></label>
-                                    <input type="radio" name="stars-rating" id="stars-rating-4">
-                                    <label for="stars-rating-4"><i class="icon-star"></i></label>
-                                    <input type="radio" name="stars-rating" id="stars-rating-3">
-                                    <label for="stars-rating-3"><i class="icon-star"></i></label>
-                                    <input type="radio" name="stars-rating" id="stars-rating-2">
-                                    <label for="stars-rating-2"><i class="icon-star"></i></label>
-                                    <input type="radio" name="stars-rating" id="stars-rating-1">
-                                    <label for="stars-rating-1"><i class="icon-star"></i></label>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </section>
-                        </fieldset>
-                    </form>
+                <div class="single-men" style="width:720px;">
+                    <div class="img-responsive">
+                        <img style="float:left; width:425px; height:325px;" src="~/Content/images/@Model.LsFood[0].Image" alt="" />
+                            <table style="font-size:1.3em; color:#848484; line-height:1.5em; float: left; width: 295px; height: 325px; text-align: center;">
+                                <tr>
+                                    <td style="color:#aa381e"> @Model.LsSupply[0].Name </td>
+                                </tr>
+
+                                <tr>
+                                    <td> @Model.LsSupply[0].Vote <img src="~/Content/images/star_vote.png"> </td>
+                                </tr>
+
+                                <tr>
+                                    <td> @Model.LsSupply[0].Address </td>
+                                </tr>
+
+                                <tr>
+                                    <td> @Model.LsSupply[0].Phone </td>
+                                </tr>
+                            </table>
+                    </div>
+                  
                     <div class="clearfix"> </div>
                     <h5> @Model.LsFood[0].Name </h5>
 
@@ -57,6 +59,7 @@
                         <div class="sub-in">
                             <input type="submit" value="Submit Comment">
                         </div>
+                        <div class="fb-comments" data-href="/  " data-numposts="5"></div>
                     </form>
                 </div>
             </div>
