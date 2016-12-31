@@ -35,7 +35,6 @@ namespace FoodShop.Controllers
             return View(GIndex);
         }
 
-      
         public ActionResult Single(string ID)
         {
             GIndex.LsCategory = model.tblCategories.ToList();

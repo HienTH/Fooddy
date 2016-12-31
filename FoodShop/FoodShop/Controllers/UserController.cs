@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using FoodShop.Models;
 using FoodShop.CSDL;
+using FoodShop.Common;
 
 namespace FoodShop.Controllers
 {
@@ -13,9 +14,41 @@ namespace FoodShop.Controllers
         //
         // GET: /User/
         Fooddy model = new Fooddy();
-        public ActionResult Login()
+        public ActionResult Index()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult Login(string txtuser, string txtpass)
+        {
+            if(txtuser.Trim() == "" || txtpass.Trim() == "")
+            {
+                ModelState.AddModelError("Thông Báo", "Bạn nhập thiếu thông tin");
+                return RedirectToAction("Index", "User");
+            }
+//            tblUser us = new tblUser();
+//            us.Username = txtuser;
+//            us.Password = txtpass;
+            ///us.Password = Encryp.MD5Hash(txtpass);
+
+            tblUser uss = model.tblUsers.Find(txtuser);
+            if(uss != null && uss.Password == txtpass)
+            {  
+                if ("admin".Equals(uss.Username) && "admin".Equals(uss.Password))
+                {
+                    Session["TaiKhoan"] = uss;
+                    return RedirectToAction("Index", "AD");
+                }
+                Session["TaiKhoan"] = uss;
+                ViewBag.name = uss.Username;
+                return RedirectToAction("Main", "Food");
+            }
+            else
+            {
+                ModelState.AddModelError("Thông Báo", "Không đúng tài khoản hoặc mật khẩu");
+                return RedirectToAction("Index", "User");
+            }
+            return View("Index");
         }
 
         public ActionResult SignIn(User us)
@@ -29,30 +62,6 @@ namespace FoodShop.Controllers
         public ActionResult SignInN()
         {
             return View();
-        }
-
-        public ActionResult Check(string txtuser, string txtpass)
-        {
-            List<tblUser> lsUser = new List<tblUser>();
-
-            lsUser = model.Database.SqlQuery<tblUser>(@"select * from tblUser").ToList();
-            
-            if(txtuser=="admin" && txtpass=="admin")
-            {
-                Session["FullName"] = "admin";
-                return RedirectToAction("Index", "AD");
-            }
-
-            for (int i = 0; i < lsUser.Count;i++ )
-            {
-                if(txtuser==lsUser[i].Username && txtpass==lsUser[i].Password)
-                {
-                    Session["FullName"] = lsUser[i].Username;
-                    ViewBag.name = txtuser;
-                    return RedirectToAction("Index", "Food");
-                }
-            }
-            return View("Login");
         }
 	}
 }

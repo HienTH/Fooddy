@@ -160,8 +160,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Common\Encryp.cs" />
     <Compile Include="Controllers\ADController.cs" />
+    <Compile Include="Controllers\ApplicationDbContext.cs" />
+    <Compile Include="Controllers\ApplicationUser.cs" />
     <Compile Include="Controllers\FoodController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -178,10 +180,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommentFood.cs" />
     <Compile Include="Models\GMenuFood.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MenuFood.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -297,9 +297,8 @@
     <Content Include="Views\Food\Single.cshtml" />
     <Content Include="Views\Food\Contact.cshtml" />
     <Content Include="Views\Food\Locations.cshtml" />
-    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\SignInN.cshtml" />
-    <Content Include="Views\Shared\_Layout_Sign.cshtml" />
     <Content Include="Views\AD\Index.cshtml" />
     <Content Include="Views\AD\Delete.cshtml" />
     <Content Include="Views\AD\Edit.cshtml" />
@@ -307,7 +306,6 @@
     <Content Include="Views\Food\SingleComment.cshtml" />
     <Content Include="Views\Food\TopMenu.cshtml" />
     <Content Include="Views\Food\Main.cshtml" />
-    <Content Include="Views\Shared\P_User.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
