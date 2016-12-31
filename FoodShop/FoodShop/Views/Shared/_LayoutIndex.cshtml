@@ -1,4 +1,7 @@
-﻿<html>
+﻿@{
+    var name = Session["TaiKhoan"];
+}
+<html>
 <head>
     <title>Food shop A Hotel Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
     <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -39,6 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="header-top">
                 <div class="header-top-in">
                     <ul class="header-grid">
+                        <li><a href="account.html"> @name </a></li>
                     </ul>
                     <div class="act">
                         <a href="#" class="done">Thiên Đường </a>
@@ -47,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <ul class="grid-header">
                     <li>@Html.ActionLink("Sign In", "SignInN", "User")<label>/</label> </li>
-                    <li> @Html.ActionLink("Login", "Login", "User") </li>
+                    <li> @Html.ActionLink("Login", "Index", "User") </li>
                 </ul>
                 <div class="clearfix"> </div>
             </div>
@@ -74,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="style_search">
                     @using (Html.BeginForm("Search", "Food", FormMethod.Post))
 {
-                        <fieldset style="width: 225px; height: 30px;margin-right:1em;">
+                        <fieldset style="width: 325px; height: 30px;margin-right:1em;">
                             <input id="s" type="text" />
 
                             <input type="submit" value="Search" id="submitButton" />
