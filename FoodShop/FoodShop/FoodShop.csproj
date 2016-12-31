@@ -163,9 +163,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ADController.cs" />
     <Compile Include="Controllers\FoodController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="CSDL\Fooddy.cs" />
+    <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\Group_Index.cs" />
     <Compile Include="CSDL\tblCategory.cs" />
     <Compile Include="CSDL\tblComment.cs" />
@@ -308,6 +310,7 @@
     <Content Include="Views\Food\TopMenu.cshtml" />
     <Content Include="Views\Food\Main.cshtml" />
     <Content Include="Views\Shared\P_User.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
