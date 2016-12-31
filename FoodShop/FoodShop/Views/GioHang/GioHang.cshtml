@@ -1,0 +1,40 @@
+﻿@using FoodShop.Models;
+@model List<GioHang>
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GioHang</h2>
+<table>
+    <tr>
+        <td>Mã Food</td>
+        <td>Tên Food</td>
+        <td>Ảnh Food</td>
+        <td>Đơn giá</td>
+        <td>Số lượng</td>
+        <td>Thành tiền</td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaSP</td>
+
+            <td>@item.TenSP</td>
+
+            <td><img src="@Url.Content("")" width="50" height="50" /></td>
+
+            <td>
+                @string.Format("{0:0,0}", @item.Dongia.ToString()) VNĐ
+            </td>
+
+            <td>@item.Soluong</td>
+
+            <td>
+                @string.Format("{0:0,0}", @item.Thanhtien.ToString()) VNĐ
+            </td>
+        </tr>
+    }
+</table>
+
